@@ -1,2 +1,2 @@
 # CBIR
-Project College Master Degree - Institute Technology of Bandung
+Project College Informatics Master Degree - Institute Technology of Bandung

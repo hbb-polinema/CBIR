@@ -1,5 +1,5 @@
-# Usage: >> python search.py --index index.csv --query queries/sample_query.jpg
-# or >> py search.py -i <your_index_filename> -q <your_query_image>
+# Usage: >> python search.py --index index.csv --query queries/sample_query.jpg --result-path
+# or >> py search.py -i <your_index_filename> -q <your_query_image> -r your_datapath
 
 # import the necessary packages
 from module.colordescriptor import ColorDescriptor
@@ -14,6 +14,8 @@ ap.add_argument("-i", "--index", required = True,
 	help = "Path to where the computed index will be stored")
 ap.add_argument("-q", "--query", required = True,
 	help = "Path to the query image")
+ap.add_argument("-r", "--result-path", required = True,
+	help = "Path to the result path")
 args = vars(ap.parse_args())
 
 # Estimated timing
@@ -42,8 +44,10 @@ i = 0
 print '\n 10 Best Matching Result for Query: ', args["query"], '\n'
 for (score, resultID) in results:
 	# load the result image and display it
-	result = cv2.imread(resultID)
-	cv2.imshow("Result", result)
+	result = cv2.imread(args["result_path"] + "/" + resultID)
+	
 	i = i + 1
+	cv2.imshow('Result #{}'.format(i), result)
 	print i,'.\t Score: ', score, '\t\t | image: ', resultID
+	
 	cv2.waitKey(0)

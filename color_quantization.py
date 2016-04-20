@@ -4,8 +4,13 @@ from matplotlib import pyplot as plt
 
 print 'process...'
 
-img = cv2.imread('queries/313.jpg')
+img = cv2.imread('queries/600.jpg')
 Z = img.reshape((-1,3))
+
+# show our image
+plt.figure()
+plt.axis("off")
+plt.imshow(img)
  
 print 'Z = ', Z
 
