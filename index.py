@@ -25,14 +25,14 @@ def labeling(imgID):
 		label = 'people'
 	
 	if len(id) == 3:
-		if int(id[0]) is 1:
+		if int(id[0]) == 1:
 			label = 'beach'
 		elif int(id[0]) == 2:
 			label = 'building'
 		elif int(id[0]) == 3:
 			label = 'bus'
 		elif int(id[0]) == 4:
-			label = 'dinasaur'
+			label = 'dinosaur'
 		elif int(id[0]) == 5:
 			label = 'elephant'
 		elif int(id[0]) == 6:

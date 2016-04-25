@@ -34,7 +34,7 @@ searcher = Searcher(args["index"])
 results = searcher.search(features)
 
 # display the query
-cv2.imshow("Query", query)
+cv2.imshow("Query: %s"% (args["query"]), query)
 
 # Result estimated time
 print("\n--- Estimated time execution: %s seconds ---" % round(time.time() - start_time, 4))
@@ -47,7 +47,7 @@ for (score, resultID) in results:
 	result = cv2.imread(args["result_path"] + "/" + resultID)
 	
 	i = i + 1
-	cv2.imshow('Result #{}'.format(i), result)
+	cv2.imshow('Result #%s - %s'% (i, resultID), result)
 	print i,'.\t Score: ', score, '\t\t | image: ', resultID
 	
 	cv2.waitKey(0)
